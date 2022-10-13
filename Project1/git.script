@@ -1,0 +1,147 @@
+bash-4.2$ cd ~/comp3500/project1
+bash-4.2$ git init
+Initialized empty Git repository in /home/u3/spu0004/comp3500/project1/.git/
+bash-4.2$ touch cpu.c
+bash-4.2$ touch driver.c
+bash-4.2$ touch file.c
+bash-4.2$ git status
+# On branch master
+#
+# Initial commit
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	.gdbinit
+#	commands.script
+#	cpu.c
+#	cpuinfo.txt
+#	driver.c
+#	file.c
+#	gdb.script
+#	interrupts.txt
+#	lspci.txt
+#	meminfo.txt
+#	simple.c
+nothing added to commit but untracked files present (use "git add" to track)
+bash-4.2$ git add * .c
+fatal: pathspec '.c' did not match any files
+bash-4.2$ git add*.c
+git: 'add*.c' is not a git command. See 'git --help'.
+bash-4.2$ git add *.c
+bash-4.2$ git status
+# On branch master
+#
+# Initial commit
+#
+# Changes to be committed:
+#   (use "git rm --cached <file>..." to unstage)
+#
+#	new file:   cpu.c
+#	new file:   driver.c
+#	new file:   file.c
+#	new file:   simple.c
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	.gdbinit
+#	commands.script
+#	cpuinfo.txt
+#	gdb.script
+#	interrupts.txt
+#	lspci.txt
+#	meminfo.txt
+bash-4.2$ git commit -m 'Initial project 1'
+[master (root-commit) 59da166] Initial project 1
+ Committer: Shanti Peregrina Upadhyay <spu0004@tux238.eng.auburn.edu>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly:
+
+    git config --global user.name "Your Name"
+    git config --global user.email you@example.com
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 4 files changed, 16 insertions(+)
+ create mode 100644 cpu.c
+ create mode 100644 driver.c
+ create mode 100644 file.c
+ create mode 100644 simple.c
+bash-4.2$ git status
+# On branch master
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	.gdbinit
+#	commands.script
+#	cpuinfo.txt
+#	gdb.script
+#	interrupts.txt
+#	lspci.txt
+#	meminfo.txt
+nothing added to commit but untracked files present (use "git add" to track)
+bash-4.2$ rm cpu.c
+bash-4.2$ ls
+commands.script  driver.c  gdb.script	   lspci.txt	simple.c
+cpuinfo.txt	 file.c    interrupts.txt  meminfo.txt
+bash-4.2$ git checkout cpu.c
+bash-4.2$ git checkout -b master2
+Switched to a new branch 'master2'
+bash-4.2$ touch cpu2.c
+bash-4.2$ git add cpu2.c
+bash-4.2$ git commit -m 'cpu2 is added into master 2'
+[master2 2be853c] cpu2 is added into master 2
+ Committer: Shanti Peregrina Upadhyay <spu0004@tux238.eng.auburn.edu>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly:
+
+    git config --global user.name "Your Name"
+    git config --global user.email you@example.com
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 cpu2.c
+bash-4.2$ git branch
+  master
+* master2
+bash-4.2$ ls
+commands.script  cpu.c	      driver.c	gdb.script	lspci.txt    simple.c
+cpu2.c		 cpuinfo.txt  file.c	interrupts.txt	meminfo.txt
+bash-4.2$ git checkout master
+Switched to branch 'master'
+bash-4.2$ ls
+commands.script  cpuinfo.txt  file.c	  interrupts.txt  meminfo.txt
+cpu.c		 driver.c     gdb.script  lspci.txt	  simple.c
+bash-4.2$ git clone -b master .../new_project1
+fatal: repository '.../new_project1' does not exist
+bash-4.2$ cd
+bash-4.2$ ls
+appdata  comp3500  COMP3500  Desktop  Documents  git.script  ntuser.cmd  test
+bash-4.2$ cd new_project1
+bash: cd: new_project1: No such file or directory
+bash-4.2$ 
+bash-4.2$ git clone https://github.com/supadhyay12/COMP3500
+fatal: destination path 'COMP3500' already exists and is not an empty directory.
+bash-4.2$ git status
+fatal: Not a git repository (or any parent up to mount point /home/u3)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+bash-4.2$ git add README
+fatal: Not a git repository (or any parent up to mount point /home/u3)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+bash-4.2$ git diff
+usage: git diff [--no-index] <path> <path>
+bash-4.2$ git commit
+fatal: Not a git repository (or any parent up to mount point /home/u3)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+bash-4.2$ git log
+fatal: Not a git repository (or any parent up to mount point /home/u3)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+bash-4.2$ 

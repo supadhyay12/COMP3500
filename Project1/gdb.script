@@ -1,0 +1,374 @@
+Script started on Sat 21 May 2022 12:03:52 PM CDT
+[?1034hbash-4.2$ gcc pv[K[K-v
+Using built-in specs.
+COLLECT_GCC=gcc
+COLLECT_LTO_WRAPPER=/usr/libexec/gcc/x86_64-redhat-linux/4.8.5/lto-wrapper
+Target: x86_64-redhat-linux
+Configured with: ../configure --prefix=/usr --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=http://bugzilla.redhat.com/bugzilla --enable-bootstrap --enable-shared --enable-threads=posix --enable-checking=release --with-system-zlib --enable-__cxa_atexit --disable-libunwind-exceptions --enable-gnu-unique-object --enable-linker-build-id --with-linker-hash-style=gnu --enable-languages=c,c++,objc,obj-c++,java,fortran,ada,go,lto --enable-plugin --enable-initfini-array --disable-libgcj --with-isl=/builddir/build/BUILD/gcc-4.8.5-20150702/obj-x86_64-redhat-linux/isl-install --with-cloog=/builddir/build/BUILD/gcc-4.8.5-20150702/obj-x86_64-redhat-linux/cloog-install --enable-gnu-indirect-function --with-tune=generic --with-arch_32=x86-64 --build=x86_64-redhat-linux
+Thread model: posix
+gcc version 4.8.5 20150623 (Red Hat 4.8.5-44) (GCC) 
+bash-4.2$ gcc -g -lm -o simple simple.c
+bash-4.2$ man lld[K[Kdd
+[?1049h[?1h=LDD(1)                     Linux Programmer's Manual                    LDD(1)[m
+[m
+[1mNAME[0m[m
+       ldd - print shared library dependencies[m
+[m
+[1mSYNOPSIS[0m[m
+       [1mldd[0m [OPTION]... FILE...[m
+[m
+[1mDESCRIPTION[0m[m
+       [1mldd[0m  prints  the  shared  libraries  required by each program or shared[m
+       library specified on the command line.[m
+[m
+   [1mSecurity[0m[m
+       In the usual  case,  [1mldd[0m  invokes  the  standard  dynamic  linker  (see[m
+       [1mld.so[0m(8))  with the [1mLD_TRACE_LOADED_OBJECTS[0m environment variable set to[m
+       1, which causes the linker to display  the  library  dependencies.   Be[m
+       aware,  however,  that  in some circumstances, some versions of [1mldd[0m may[m
+       attempt to obtain the dependency information by directly executing  the[m
+       program.  Thus, you should [4mnever[24m employ [1mldd[0m on an untrusted executable,[m
+       since this may result in the execution  of  arbitrary  code.   A  safer[m
+       alternative when dealing with untrusted executables is:[m
+[m
+           $ objdump -p /path/to/program | grep NEEDED[m
+[7m Manual page ldd(1) line 1 (press h for help or q to quit)[27m[K[K[m
+[7m Manual page ldd(1) line 2 (press h for help or q to quit)[27m[K[K[1mOPTIONS[0m[m
+[7m Manual page ldd(1) line 5 (press h for help or q to quit)[27m[K[K       [1m--version[0m[m
+[7m Manual page ldd(1) line 6 (press h for help or q to quit)[27m[K[K              Print the version number of [1mldd[0m.[m
+[7m Manual page ldd(1) line 7 (press h for help or q to quit)[27m[K[K[m
+[7m Manual page ldd(1) line 8 (press h for help or q to quit)[27m[K[K       [1m-v[0m [1m--verbose[0m[m
+[7m Manual page ldd(1) line 9 (press h for help or q to quit)[27m[K[K              Print all information, including, for example, symbol versioning[m
+[7m Manual page ldd(1) line 10 (press h for help or q to quit)[27m[K[K              information.[m
+[7m Manual page ldd(1) line 11 (press h for help or q to quit)[27m[K[K[m
+[7m Manual page ldd(1) line 12 (press h for help or q to quit)[27m[K[K       [1m-u[0m [1m--unused[0m[m
+[7m Manual page ldd(1) line 13 (press h for help or q to quit)[27m[K[K              Print unused direct dependencies.  (Since glibc 2.3.4.)[m
+[7m Manual page ldd(1) line 14 (press h for help or q to quit)[27m[K[K[m
+[7m Manual page ldd(1) line 15 (press h for help or q to quit)[27m[K[K       [1m-d[0m [1m--data-relocs[0m[m
+[7m Manual page ldd(1) line 16 (press h for help or q to quit)[27m[K[K              Perform relocations and report any missing objects (ELF only).[m
+[7m Manual page ldd(1) line 17 (press h for help or q to quit)[27m[K[K[m
+[7m Manual page ldd(1) line 18 (press h for help or q to quit)[27m[K[K       [1m-r[0m [1m--function-relocs[0m[m
+[7m Manual page ldd(1) line 19 (press h for help or q to quit)[27m[K[K              Perform relocations for both data  objects  and  functions,  and[m
+[7m Manual page ldd(1) line 20 (press h for help or q to quit)[27m[K[K              report any missing objects or functions (ELF only).[m
+[7m Manual page ldd(1) line 21 (press h for help or q to quit)[27m[K[K[m
+[7m Manual page ldd(1) line 22 (press h for help or q to quit)[27m[K[K       [1m--help[0m Usage information.[m
+[7m Manual page ldd(1) line 23 (press h for help or q to quit)[27m[K[K[m
+[7m Manual page ldd(1) line 24 (press h for help or q to quit)[27m[K[K[1mNOTES[0m[m
+[7m Manual page ldd(1) line 25 (press h for help or q to quit)[27m[K[K       The  standard  version  of  [1mldd[0m  comes with glibc2.  Libc5 came with an[m
+[7m Manual page ldd(1) line 26 (press h for help or q to quit)[27m[K[K       older version, still present on some systems.  The long options are not[m
+[7m Manual page ldd(1) line 27 (press h for help or q to quit)[27m[K[K       supported  by the libc5 version.  On the other hand, the glibc2 version[m
+[7m Manual page ldd(1) line 28 (press h for help or q to quit)[27m[K[K       does not support [1m-V[0m and only has the equivalent [1m--version[0m.[m
+[7m Manual page ldd(1) line 29 (press h for help or q to quit)[27m[K[K[m
+[7m Manual page ldd(1) line 30 (press h for help or q to quit)[27m[K[K       The libc5 version of this program will use the name of a library  given[m
+[7m Manual page ldd(1) line 31 (press h for help or q to quit)[27m[K[K       on the command line as-is when it contains a '/'; otherwise it searches[m
+[7m Manual page ldd(1) line 32 (press h for help or q to quit)[27m[K[K       for the library in the standard locations.   To  run  it  on  a  shared[m
+[7m Manual page ldd(1) line 33 (press h for help or q to quit)[27m[K[K       library in the current directory, prefix the name with "./".[m
+[7m Manual page ldd(1) line 34 (press h for help or q to quit)[27m[K[K[m
+[7m Manual page ldd(1) line 35 (press h for help or q to quit)[27m[K[K[1mBUGS[0m[m
+[7m Manual page ldd(1) line 36 (press h for help or q to quit)[27m[K[K       [1mldd[0m does not work on a.out shared libraries.[m
+[7m Manual page ldd(1) line 37 (press h for help or q to quit)[27m[K[K[m
+[7m Manual page ldd(1) line 38 (press h for help or q to quit)[27m[K[K       [1mldd[0m  does  not  work  with some extremely old a.out programs which were[m
+[7m Manual page ldd(1) line 39 (press h for help or q to quit)[27m[K[K       built before [1mldd[0m support was added to the compiler  releases.   If  you[m
+[7m Manual page ldd(1) line 40 (press h for help or q to quit)[27m[K[K       use  [1mldd[0m on one of these programs, the program will attempt to run with[m
+[7m Manual page ldd(1) line 41 (press h for help or q to quit)[27m[K[K       [4margc[24m = 0 and the results will be unpredictable.[m
+[7m Manual page ldd(1) line 42 (press h for help or q to quit)[27m[K[K[m
+[7m Manual page ldd(1) line 43 (press h for help or q to quit)[27m[K[K[1mSEE[0m [1mALSO[0m[m
+[7m Manual page ldd(1) line 44 (press h for help or q to quit)[27m[K[K       [1mld.so[0m(8), [1mldconfig[0m(8)[m
+[7m Manual page ldd(1) line 45 (press h for help or q to quit)[27m[K[K[m
+[7m Manual page ldd(1) line 46 (press h for help or q to quit)[27m[K[K[1mCOLOPHON[0m[m
+[7m Manual page ldd(1) line 47 (press h for help or q to quit)[27m[K[K       This page is part of release 3.53 of the Linux  [4mman-pages[24m  project.   A[m
+[7m Manual page ldd(1) line 48 (press h for help or q to quit)[27m[K[K       description  of  the project, and information about reporting bugs, can[m
+[7m Manual page ldd(1) line 49 (press h for help or q to quit)[27m[K[K       be found at http://www.kernel.org/doc/man-pages/.[m
+[7m Manual page ldd(1) line 50 (press h for help or q to quit)[27m[K[K[m
+[7m Manual page ldd(1) line 51 (press h for help or q to quit)[27m[K[K                                  2012-07-16                            LDD(1)[m
+[7m Manual page ldd(1) line 52 (press h for help or q to quit)[27m[K[K[K[7m Manual page ldd(1) line 52/76 (END) (press h for help or q to quit)[27m[K[K[?1l>[?1049lbash-4.2$ ldd simple
+	linux-vdso.so.1 =>  (0x00007ffde2f5d000)
+	libm.so.6 => /lib64/libm.so.6 (0x00007fb86e7ea000)
+	libc.so.6 => /lib64/libc.so.6 (0x00007fb86e41c000)
+	/lib64/ld-linux-x86-64.so.2 (0x00007fb86eaec000)
+bash-4.2$ r
+bash: r: command not found
+bash-4.2$ r is[K[Ksimple.c
+bash: r: command not found
+bash-4.2$ run [K[K[K[Kgdb[K[K[Kgdb r sm[Kimplec[K,c[K[K.c
+[?1034hGNU gdb (GDB) Red Hat Enterprise Linux 7.6.1-120.el7
+Copyright (C) 2013 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-redhat-linux-gnu".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>...
+r: No such file or directory.
+"/home/u3/spu0004/simple.c" is not a core dump: File format not recognized
+(gdb) ru[K sic[Kmple.c
+Starting program:  simple.c
+No executable file specified.
+Use the "file" or "exec-file" command.
+(gdb) exec-file
+No executable file now.
+(gdb) clear
+No source file specified.
+(gdb) q
+bash-4.2$ ./simplec
+bash: ./simplec: No such file or directory
+bash-4.2$ gcc simple.c -o simple
+/tmp/ccWZqSkZ.o: In function `main':
+simple.c:(.text+0xba): undefined reference to `sqrt'
+collect2: error: ld returned 1 exit status
+bash-4.2$ vim gd[K[K[K .gdbinit
+[?1049h[?1h=[2;1H▽[6n[2;1H  [1;1H]11;?[1;24r[?12;25h[?12l[?25h[27m[m[H[2J[?25l[24;1H".gdbinit" [New File][>c[2;1H[94m~                                                                               [3;1H~                                                                               [4;1H~                                                                               [5;1H~                                                                               [6;1H~                                                                               [7;1H~                                                                               [8;1H~                                                                               [9;1H~                                                                               [10;1H~                                                                               [11;1H~                                                                               [12;1H~                                                                               [13;1H~                                                                               [14;1H~                                                                               [15;1H~                                                                               [16;1H~                                                                               [17;1H~                                                                               [18;1H~                                                                               [19;1H~                                                                               [20;1H~                                                                               [21;1H~                                                                               [22;1H~                                                                               [23;1H~                                                                               [m[24;63H0,0-1[9CAll[1;1H[?12l[?25h[27m[m[H[2J[?25l[2;1H[94m~                                                                               [3;1H~                                                                               [4;1H~                                                                               [5;1H~                                                                               [6;1H~                                                                               [7;1H~                                                                               [8;1H~                                                                               [9;1H~                                                                               [10;1H~                                                                               [11;1H~                                                                               [12;1H~                                                                               [13;1H~                                                                               [14;1H~                                                                               [15;1H~                                                                               [16;1H~                                                                               [17;1H~                                                                               [18;1H~                                                                               [19;1H~                                                                               [20;1H~                                                                               [21;1H~                                                                               [22;1H~                                                                               [23;1H~                                                                               [m[24;63H0,0-1[9CAll".gdbinit" [New File][1;1H[?12l[?25h[?25l[24;1H[1m-- INSERT --[m[24;13H[K[24;63H2,1[11CAll[2;1H[K[2;1H[?12l[?25h[?25li[24;65H2[2;2H[?12l[?25h[?25l[2;1H[K[24;65H1[2;1H[?12l[?25h[?25lf[24;65H2[2;2H[?12l[?25h[?25li[24;65H3[2;3H[?12l[?25h[?25ll[24;65H4[2;4H[?12l[?25h[?25l[38;5;130mfile[m[24;65H5[2;5H[?12l[?25h[?25l[24;65H6[2;6H[?12l[?25h[?25ls[24;65H7[2;7H[?12l[?25h[?25li[24;65H8[2;8H[?12l[?25h[?25lm[24;65H9[2;9H[?12l[?25h[?25lp[24;65H10[2;10H[?12l[?25h[?25ll[24;66H1[2;11H[?12l[?25h[?25le[24;66H2[2;12H[?12l[?25h[?25l[3;1H[K[24;63H3,1 [3;1H[?12l[?25h[?25lb[24;65H2[3;2H[?12l[?25h[?25lr[24;65H3[3;3H[?12l[?25h[?25le[24;65H4[3;4H[?12l[?25h[?25la[24;65H5[3;5H[?12l[?25h[?25l[38;5;130mbreak[m[24;65H6[3;6H[?12l[?25h[?25l[24;65H7[3;7H[?12l[?25h[?25lm[24;65H8[3;8H[?12l[?25h[?25la[24;65H9[3;9H[?12l[?25h[?25li[24;65H10[3;10H[?12l[?25h[?25ln[24;66H1[3;11H[?12l[?25h[?25l[4;1H[K[24;63H4,1 [4;1H[?12l[?25h[?25lb[24;65H2[4;2H[?12l[?25h[?25lr[24;65H3[4;3H[?12l[?25h[?25le[24;65H4[4;4H[?12l[?25h[?25la[24;65H5[4;5H[?12l[?25h[?25l[38;5;130mbreak[m[24;65H6[4;6H[?12l[?25h[?25l[24;65H7[4;7H[?12l[?25h[?25ls[24;65H8[4;8H[?12l[?25h[?25lq[24;65H9[4;9H[?12l[?25h[?25lt[24;65H10[4;10H[?12l[?25h[?25l[4;9H[K[24;65H9 [4;9H[?12l[?25h[?25lr[24;65H10[4;10H[?12l[?25h[?25lt[24;66H1[4;11H[?12l[?25h[?25l[5;1H[K[24;63H5,1 [5;1H[?12l[?25h[?25li[24;65H2[5;2H[?12l[?25h[?25ln[24;65H3[5;3H[?12l[?25h[?25lf[24;65H4[5;4H[?12l[?25h[?25l[38;5;130minfo[m[24;65H5[5;5H[?12l[?25h[?25l[24;65H6[5;6H[?12l[?25h[?25lr[24;65H7[5;7H[?12l[?25h[?25le[24;65H8[5;8H[?12l[?25h[?25lg[24;65H9[5;9H[?12l[?25h[?25li[24;65H10[5;10H[?12l[?25h[?25ls[24;66H1[5;11H[?12l[?25h[?25lt[24;66H2[5;12H[?12l[?25h[?25le[24;66H3[5;13H[?12l[?25h[?25lr[24;66H4[5;14H[?12l[?25h[?25l[5;6H[32mregisters[m[24;66H5[5;15H[?12l[?25h[?25l[24;63H4,11[4;11H[?12l[?25h[?25l[24;63H3[3;11H[?12l[?25h[?25l[24;63H2,12[2;12H[?12l[?25h[?25l[24;63H1,1 [1;1H[?12l[?25h[24;1H[K[1;1H[?25l[24;63H1,0-1[9CAll[1;1H[?12l[?25h[?25l[24;63H[K[24;1H:[?12l[?25hw[?25l[?12l[?25hq[?25l[?12l[?25h[?25l".gdbinit" [New] 5L, 50C written
+[?1l>[?12l[?25h[?1049lbash-4.2$ gdb
+[?1034hGNU gdb (GDB) Red Hat Enterprise Linux 7.6.1-120.el7
+Copyright (C) 2013 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-redhat-linux-gnu".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+(gdb) r
+Starting program:  
+No executable file specified.
+Use the "file" or "exec-file" command.
+(gdb) r simple.c
+Starting program:  simple.c
+No executable file specified.
+Use the "file" or "exec-file" command.
+(gdb) n
+The program is not being run.
+(gdb) clear
+No source file specified.
+(gdb) 1
+Undefined command: "1".  Try "help".
+(gdb) q
+bash-4.2$ clear
+[3;J[H[2Jbash-4.2$ scipr[K[K[K[K[Kscript git.script
+Script started, file is git.script
+[?1034hbash-4.2$ cd ~/comp3500.[K/project1
+bash: cd: /home/u3/spu0004/comp3500/project1: No such file or directory
+bash-4.2$ ~cd [K[K[K[Kcd ~/comp3500
+bash-4.2$ git init
+Initialized empty Git repository in /home/u3/spu0004/comp3500/.git/
+bash-4.2$ touch cpu.c
+bash-4.2$ r[Ktouch driver.c
+bash-4.2$ touch file.c
+bash-4.2$ status[K[K[K[K[K[Kgit t[Kstatus
+# On branch master
+#
+# Initial commit
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	.gdbinit
+#	.helloworld.c.swp
+#	Terminal Saved Output
+#	commands.script
+#	cpu.c
+#	cpuinfo.txt
+#	driver.c
+#	file.c
+#	gdb.script
+#	helloworld
+#	helloworld.c
+#	interrupts.txt
+#	lspci.txt
+#	meminfo.txt
+nothing added to commit but untracked files present (use "git add" to track)
+bash-4.2$ add *.c
+bash: add: command not found
+bash-4.2$ git add*c[K[K * [K.c
+bash-4.2$ status
+bash: status: command not found
+bash-4.2$ git status
+# On branch master
+#
+# Initial commit
+#
+# Changes to be committed:
+#   (use "git rm --cached <file>..." to unstage)
+#
+#	new file:   cpu.c
+#	new file:   driver.c
+#	new file:   file.c
+#	new file:   helloworld.c
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	.gdbinit
+#	.helloworld.c.swp
+#	Terminal Saved Output
+#	commands.script
+#	cpuinfo.txt
+#	gdb.script
+#	helloworld
+#	interrupts.txt
+#	lspci.txt
+#	meminfo.txt
+bash-4.2$ git commit -m "[K'Initial project 1'
+[master (root-commit) 8ba1c48] Initial project 1
+ Committer: Shanti Peregrina Upadhyay <spu0004@tux238.eng.auburn.edu>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly:
+
+    git config --global user.name "Your Name"
+    git config --global user.email you@example.com
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 4 files changed, 13 insertions(+)
+ create mode 100644 cpu.c
+ create mode 100644 driver.c
+ create mode 100644 file.c
+ create mode 100644 helloworld.c
+bash-4.2$ git status
+# On branch master
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	.gdbinit
+#	.helloworld.c.swp
+#	Terminal Saved Output
+#	commands.script
+#	cpuinfo.txt
+#	gdb.script
+#	helloworld
+#	interrupts.txt
+#	lspci.txt
+#	meminfo.txt
+nothing added to commit but untracked files present (use "git add" to track)
+bash-4.2$ rm co[Kpu.c
+bash-4.2$ ls
+commands.script  file.c      helloworld.c    meminfo.txt
+cpuinfo.txt	 gdb.script  interrupts.txt  Terminal Saved Output
+driver.c	 helloworld  lspci.txt
+bash-4.2$ git checkout cpu.c
+bash-4.2$ git checkout -b master2
+Switched to a new branch 'master2'
+bash-4.2$ touch cpu2.c
+bash-4.2$ add cpu2.c
+bash: add: command not found
+bash-4.2$ co[K[Kgit add cpu2.c
+bash-4.2$ git commit -m 'cpu2 is added into master 2'
+[master2 b1c991f] cpu2 is added into master 2
+ Committer: Shanti Peregrina Upadhyay <spu0004@tux238.eng.auburn.edu>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly:
+
+    git config --global user.name "Your Name"
+    git config --global user.email you@example.com
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 cpu2.c
+bash-4.2$ branch[K[K[K[K[K[Kgit branch
+  master
+* master2
+bash-4.2$ ls
+commands.script  driver.c    helloworld.c    Terminal Saved Output
+cpu2.c		 file.c      interrupts.txt
+cpu.c		 gdb.script  lspci.txt
+cpuinfo.txt	 helloworld  meminfo.txt
+bash-4.2$ git checkout master
+Switched to branch 'master'
+bash-4.2$ ls
+commands.script  driver.c    helloworld      lspci.txt
+cpu.c		 file.c      helloworld.c    meminfo.txt
+cpuinfo.txt	 gdb.script  interrupts.txt  Terminal Saved Output
+bash-4.2$ git clone -b a[Kmaster .../new_project1
+fatal: repository '.../new_project1' does not exist
+bash-4.2$ cd/[K
+bash-4.2$ ls
+appdata  comp3500  Desktop  Documents  git.script  ntuser.cmd  simple.c  test
+bash-4.2$ cd new>p[K[K_project1
+bash: cd: new_project1: No such file or directory
+bash-4.2$ git clone https://github.com/supadhyay12/[K/[K
+Cloning into 'supadhyay12'...
+fatal: repository 'https://github.com/supadhyay12/' not found
+bash-4.2$ git clone https://github.com/supadhyay12/COMP2500
+Cloning into 'COMP2500'...
+Username for 'https://github.com': 1 q
+Password for 'https://q@github.com': 
+
+remote: Invalid username or password.
+fatal: Authentication failed for 'https://github.com/supadhyay12/COMP2500/'
+bash-4.2$ 
+bash-4.2$ git clone https://github.com/supadhyay12/com[K[K[KCOMP3500
+Cloning into 'COMP3500'...
+warning: You appear to have cloned an empty repository.
+bash-4.2$ 
+bash-4.2$ git status
+fatal: Not a git repository (or any parent up to mount point /home/u3)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+bash-4.2$ gt[Kit add README
+fatal: Not a git repository (or any parent up to mount point /home/u3)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+bash-4.2$ git diff
+usage: git diff [--no-index] <path> <path>
+bash-4.2$ git commit
+fatal: Not a git repository (or any parent up to mount point /home/u3)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+bash-4.2$ git log
+fatal: Not a git repository (or any parent up to mount point /home/u3)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+bash-4.2$ clear
+[3;J[H[2Jbash-4.2$ mkdir /home.u3[K[K[K/u3/spu0004[C/comp3500/project1
+bash-4.2$ script git.script
+Script started, file is git.script
+[?1034hbash-4.2$ cd ~/comp3500/projc[Kect1
+bash-4.2$ git init
+Initialized empty Git repository in /home/u3/spu0004/comp3500/project1/.git/
+bash-4.2$ touch cpu.c
+bash-4.2$ touch driver.c
+bash-4.2$ touch file.c
+bash-4.2$ git status
+# On branch master
+#
+# Initial commit
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	.gdbinit
+#	commands.script
+#	cpu.c
+#	cpuinfo.txt
+#	driver.c
+#	file.c
+#	gdb.script
+#	interrupts.txt
+#	lspci.txt
+#	meminfo.txt
+#	simple.c
+nothing added to commit but untracked files present (use "git add" to track)
+bash-4.2$ git add * .c
+fatal: pathspec '.c' did not match any files
+bash-4.2$ git ad*[Kd*.c
+git: 'add*.c' is not a git command. See 'git --help'.
+bash-4.2$ git add *.c
+bash-4.2$ git status
+# On branch master
+#
+# Initial commit
+#
+# Changes to be committed:
+#   (use "git rm --cached <file>..." to unstage)
+#
+#	new file:   cpu.c
+#	new file:   driver.c
+#	new file:   file.c
+#	new file:   simple.c
+#
+# Untracked files:
+#   (use "gi
