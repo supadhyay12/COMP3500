@@ -1,0 +1,28 @@
+Script started on Wed 25 May 2022 08:32:37 PM CDT
+[?1034hbash-4.2$ cd ~/cs161/root
+bash-4.2$ cs161-gdb kernel
+bash: cs161-gdb: command not found
+bash-4.2$ gdb
+[?1034hGNU gdb (GDB) Red Hat Enterprise Linux 7.6.1-120.el7
+Copyright (C) 2013 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-redhat-linux-gnu".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+(gdb) target remote unixx:[K[K: .[K[K/[K.sco[K[Kockets/gdb
+unix: unknown host
+unix:.sockets/gdb: No such file or directory.
+(gdb) brek[Kak menu
+No symbol table is loaded.  Use the "file" command.
+Make breakpoint pending on future shared library load? (y or [n]) y
+Breakpoint 1 (menu) pending.
+(gdb) c
+The program is not being run.
+(gdb) quit
+bash-4.2$ exit
+exit
+
+Script done on Wed 25 May 2022 08:38:12 PM CDT

@@ -1,0 +1,48 @@
+1. 29
+
+2. LAMEbus
+
+3. splhigh sets the set priority level to the highest value and disables any interrupts
+sp10 sets the set priority level to 0 and enables any interrupts
+
+4. To specify the size
+
+5. The old interrupt state
+
+6. 15
+
+7. Can be either 100 per second or 10000 per second
+
+8. vfs_setcurdir, vfs_clearcurdir, vfs_getcurdir, vfs_sync, vfs_getroot, vfs_getdevname, vfs_lookup, vfs_lookparent, vfs_open, vfs_readlink, vfs_symlink, vfs_mkdir, vfs_link, vfs_remove, vfs_rmdir, vfs_rename, vfs_chdir, vfs_getcwd, vfs_close, vfs_bootstrap, vfs_initbootfs, vfs_setbootfs, vfs_clearbootfs, vfs_adddev, vfs_addfs, vfs_mount, vfs_unmount, vfsunmountall
+
+9. 32
+
+10. 15
+
+11. vfs_setcurdir, vfs_clearcurdir, vfs_getcurdir, vfs_sync, vfs_getroot, vfs_getdevname, vfs_lookup, vfs_lookparent, vfs_open, vfs_readlink, vfs_symlink, vfs_mkdir, vfs_link, vfs_remove, vfs_rmdir, vfs_rename, vfs_chdir, vfs_getcwd, vfs_close, vfs_bootstrap, vfs_initbootfs, vfs_setbootfs, vfs_clearbootfs, vfs_adddev, vfs_addfs, vfs_mount, vfs_unmount, vfsunmountall
+
+12. thread_sleep()
+
+13. 32 bits
+
+14. vop_open, vop_close, vop_reclaim, vop_read, vop_readlink, vop_getdirentry, vop_write, vop_ioctl, vop_stat, vop_gettype, vop_tryseek, vop_fsync, vop_mmap, vop_truncate, vop_namefile, vop_creat, cop_symlink, vop_mkdir, vop_link, vop_remove, vor_rmdir, vop_rename, vop_lookup, vop_lookparent
+
+15. 1024
+
+16. SYS_reboot = 8
+
+17. kern/include/kern/unistd.h
+
+18. Yes because the thread system initializes the first thread. The scheduler just runs.
+
+19. Processes that have exited but not completely erased/deleted
+
+20. q_create(32)
+
+21. device
+
+22. (name) raw appended
+
+23. vn_countlock
+
+24. block and character devices
